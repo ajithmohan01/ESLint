@@ -26,7 +26,7 @@ async function updatePost(id, data) {
 }
 
 async function deletePost(id) {
-  await prisma.post.delete({ where: { id: parseInt(id, 10) } });
+  await prisma.post.delete({ where: { id: parseInt(id, 10) } }); // added  radix parameter
 }
 
 module.exports = {
