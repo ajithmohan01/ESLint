@@ -13,20 +13,20 @@ async function getAllPosts() {
 }
 
 async function getPostById(id) {
-  const post = await prisma.post.findUnique({ where: { id: parseInt(id) } });
+  const post = await prisma.post.findUnique({ where: { id: parseInt(id, 10) } });
   return post;
 }
 
 async function updatePost(id, data) {
   const post = await prisma.post.update({
-    where: { id: parseInt(id) },
+    where: { id: parseInt(id, 10) },
     data,
   });
   return post;
 }
 
 async function deletePost(id) {
-  await prisma.post.delete({ where: { id: parseInt(id) } });
+  await prisma.post.delete({ where: { id: parseInt(id, 10) } });
 }
 
 module.exports = {
